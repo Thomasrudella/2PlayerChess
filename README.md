@@ -20,7 +20,7 @@ Visit the GitHub Pages link to play the game in your browser:
 
 To run the game locally, follow these steps:
 
-1. Clone the repository to your local machine using `git clone https://github.com/your-username/your-repository.git`
+1. Clone the repository to your local machine using `git clone https://github.com/thomasrudella1/2-Player-Chess.git`
 2. Open the `index.html` file in your preferred web browser
 3. Play the game!
 
