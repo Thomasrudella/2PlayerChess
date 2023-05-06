@@ -14,7 +14,7 @@ A simple chess game built using JavaScript, HTML, and CSS. The game utilizes the
 
 Visit the GitHub Pages link to play the game in your browser:
 
-[Your GitHub Pages link here]
+https://thomasrudella1.github.io/2-Player-Chess/
 
 ## Getting Started Locally
 
