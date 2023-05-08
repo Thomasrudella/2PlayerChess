@@ -56,6 +56,11 @@ class Chessboard {
   }
 
   handleClick(index) {
+    // Check if the game is over, and if so, do nothing
+    if (this.game.in_draw() || this.game.in_checkmate()) {
+      return;
+    }
+    
     const piece = this.game.get(this.indexToSquare(index));
   
     if (this.selectedSquare === undefined) {
@@ -81,50 +86,4 @@ class Chessboard {
       }
       this.render();
     }
-    this.updateCallback(); // Add this line to update UI after each click
-  }  
-
-  indexToSquare(index) {
-    const file = 'abcdefgh'[index % 8];
-    const rank = 8 - Math.floor(index / 8);
-    return file + rank  }
-
-    squareToIndex(square) {
-      const file = square.charCodeAt(0) - 'a'.charCodeAt(0);
-      const rank = 8 - parseInt(square[1]);
-      return 8 * rank + file;
-    }
-  
-    render() {
-      const squares = this.container.getElementsByClassName("square");
-    
-      for (let i = 0; i < 64; i++) {
-        const square = squares[i];
-        const squareName = this.indexToSquare(i);
-        const piece = this.game.get(squareName);
-    
-        // Clear previous contents
-        square.innerHTML = '';
-    
-        if (piece) {
-          const pieceImage = new Image();
-          pieceImage.src = this.pieceImages[piece.color + piece.type];
-          pieceImage.width = 60; // Set the width
-          pieceImage.height = 60; // Set the height
-          square.appendChild(pieceImage);
-        }      
-    
-        // Highlight selected square
-        square.classList.remove("selected");
-        if (i === this.selectedSquare) {
-          square.classList.add("selected");
-        }
-      }
-    }
-  
-    flip() {
-      this.container.classList.toggle("flipped");
-      this.render();
-    }
-  }
-  
+   
