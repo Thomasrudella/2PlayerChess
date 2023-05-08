@@ -56,34 +56,34 @@ class Chessboard {
    }
 
    handleClick(index) {
-     const piece = this.game.get(this.indexToSquare(index));
-
-     if (this.selectedSquare === undefined) {
-       if (piece) {
-         this.selectedSquare = index;
-         this.render();
-       }
-     } else {
-       const from = this.indexToSquare(this.selectedSquare);
-       const to = this.indexToSquare(index);
-
-       const move = this.game.move({ from, to, promotion: 'q' });
-       if (move) {
-         this.updateCallback(move);
-         this.selectedSquare = undefined;
-         this.render();
-       } else if (this.selectedSquare === index) {
-         this.selectedSquare = undefined;
-       } else {
-         if (piece) {
-           this.selectedSquare = index;
-         }
-       }
-       this.render();
-     }
-     this.updateCallback(); // Add this line to update UI after each click
-   }  
-
+    const piece = this.game.get(this.indexToSquare(index));
+  
+    if (this.selectedSquare === undefined) {
+      if (piece) {
+        this.selectedSquare = index;
+        this.render();
+      }
+    } else {
+      const from = this.indexToSquare(this.selectedSquare);
+      const to = this.indexToSquare(index);
+  
+      const move = this.game.move({ from, to, promotion: 'q' });
+      if (move) {
+        this.updateCallback(move);
+        this.selectedSquare = undefined;
+        this.render();
+      } else if (this.selectedSquare === index) {
+        this.selectedSquare = undefined;
+      } else {
+        if (piece) {
+          this.selectedSquare = index;
+        }
+      }
+      this.render();
+    }
+    this.updateCallback(); // Add this line to update UI after each click
+  }
+  
    indexToSquare(index) {
      const file = 'abcdefgh'[index % 8];
      const rank = 8 - Math.floor(index / 8);
