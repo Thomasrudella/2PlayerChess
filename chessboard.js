@@ -96,31 +96,30 @@ class Chessboard {
      }
 
      render() {
-       const squares = this.container.getElementsByClassName("square");
-
-       for (let i = 0; i < 64; i++) {
-         const square = squares[i];
-         const squareName = this.indexToSquare(i);
-         const piece = this.game.get(squareName);
-
-         // Clear previous contents
-         square.innerHTML = '';
-
-         if (piece) {
-           const pieceImage = new Image();
-           pieceImage.src = this.pieceImages[piece.color + piece.type];
-           pieceImage.width = 60; // Set the width
-           pieceImage.height = 60; // Set the height
-           square.appendChild(pieceImage);
-         }      
-
-         // Highlight selected square
-         square.classList.remove("selected");
-         if (i === this.selectedSquare) {
-           square.classList.add("selected");
-         }
-       }
-     }
+      const squares = this.container.getElementsByClassName("square");
+    
+      for (let i = 0; i < 64; i++) {
+        const square = squares[i];
+        const squareName = this.indexToSquare(i);
+        const piece = this.game.get(squareName);
+    
+        // Clear previous contents
+        square.innerHTML = '';
+    
+        if (piece) {
+          const pieceImage = document.createElement('img');
+          pieceImage.src = this.pieceImages[piece.color + piece.type];
+          pieceImage.classList.add("piece-image"); // Add the existing CSS class here
+          square.appendChild(pieceImage);
+        }      
+    
+        // Highlight selected square
+        square.classList.remove("selected");
+        if (i === this.selectedSquare) {
+          square.classList.add("selected");
+        }
+      }
+    }    
 
      flip() {
        this.container.classList.toggle("flipped");
