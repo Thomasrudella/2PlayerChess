@@ -81,9 +81,46 @@ class Chessboard {
         this.selectedSquare = undefined;
       } else {
         if (piece) {
-          this.selectedSquare = index;
+          this.selectedSquare = index;        }
+        }
+        this.render();
+      }
+    }
+  
+    indexToSquare(index) {
+      const row = Math.floor(index / 8);
+      const col = index % 8;
+      const file = 'abcdefgh'[col];
+      const rank = 8 - row;
+      return file + rank;
+    }
+  
+    squareToIndex(square) {
+      const col = 'abcdefgh'.indexOf(square[0]);
+      const row = 8 - parseInt(square[1]);
+      return row * 8 + col;
+    }
+  
+    render() {
+      const squares = this.container.getElementsByClassName("square");
+      for (const square of squares) {
+        const index = parseInt(square.dataset.index);
+        const piece = this.game.get(this.indexToSquare(index));
+        square.innerHTML = '';
+        if (piece) {
+          const img = document.createElement("img");
+          img.src = this.pieceImages[piece.color + piece.type];
+          square.appendChild(img);
+        }
+        square.classList.remove("selected");
+        square.classList.remove("valid");
+        if (this.selectedSquare === index) 
+        {
+          square.classList.add("selected");
         }
       }
-      this.render();
     }
-   
+  }
+  
+  export default Chessboard;
+  
