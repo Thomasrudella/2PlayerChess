@@ -1,3 +1,5 @@
+Coding
+
 class Chessboard {
    constructor(containerId, game, updateCallback) {
      this.container = document.getElementById(containerId);
@@ -31,18 +33,18 @@ class Chessboard {
 
    loadPieceImages() {
      return {
-       wp: "white_pawn.png",
-       wn: "white_knight.png",
-       wb: "white_bishop.png",
-       wr: "white_rook.png",
-       wq: "white_queen.png",
-       wk: "white_king.png",
-       bp: "black_pawn.png",
-       bn: "black_knight.png",
-       bb: "black_bishop.png",
-       br: "black_rook.png",
-       bq: "black_queen.png",
-       bk: "black_king.png"
+       wp: "https://www.chess.com/chess-themes/pieces/alpha/150/wp.png",
+       wn: "https://www.chess.com/chess-themes/pieces/alpha/150/wn.png",
+       wb: "https://www.chess.com/chess-themes/pieces/alpha/150/wb.png",
+       wr: "https://www.chess.com/chess-themes/pieces/alpha/150/wr.png",
+       wq: "https://www.chess.com/chess-themes/pieces/alpha/150/wq.png",
+       wk: "https://www.chess.com/chess-themes/pieces/alpha/150/wk.png",
+       bp: "https://www.chess.com/chess-themes/pieces/alpha/150/bp.png",
+       bn: "https://www.chess.com/chess-themes/pieces/alpha/150/bn.png",
+       bb: "https://www.chess.com/chess-themes/pieces/alpha/150/bb.png",
+       br: "https://www.chess.com/chess-themes/pieces/alpha/150/br.png",
+       bq: "https://www.chess.com/chess-themes/pieces/alpha/150/bq.png",
+       bk: "https://www.chess.com/chess-themes/pieces/alpha/150/bk.png"
      };
    }
 
